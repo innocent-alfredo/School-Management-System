@@ -1,0 +1,42 @@
+﻿@model Xul.Domain.Entities.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.School.SchoolName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.School.SchoolName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnlistedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnlistedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

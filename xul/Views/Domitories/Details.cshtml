@@ -1,0 +1,42 @@
+﻿@model Xul.Domain.Entities.Domitory
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Domitory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.School.SchoolName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.School.SchoolName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DomitoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DomitoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DomitoryNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DomitoryNo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

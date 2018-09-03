@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="Entities.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="EntitiesTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Entities" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="EntitiesContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Schools" EntityType="Entities.School" />
+          <EntitySet Name="Domitories" EntityType="Entities.Domitory" />
+          <EntitySet Name="Classes" EntityType="Entities.Class" />
+          <EntitySet Name="Employees" EntityType="Entities.Employee" />
+          <EntitySet Name="Leaves" EntityType="Entities.Leave" />
+          <EntitySet Name="Subjects" EntityType="Entities.Subject" />
+          <EntitySet Name="Students" EntityType="Entities.Student" />
+          <EntitySet Name="Exams" EntityType="Entities.Exam" />
+          <EntitySet Name="ExamTypes" EntityType="Entities.ExamType" />
+          <EntitySet Name="Attendences" EntityType="Entities.Attendence" />
+          <EntitySet Name="TimeTables" EntityType="Entities.TimeTable" />
+          <EntitySet Name="Streams" EntityType="Entities.Stream" />
+          <EntitySet Name="Teachers" EntityType="Entities.Teacher" />
+          <EntitySet Name="Parents" EntityType="Entities.Parent" />
+          <AssociationSet Name="SchoolDomitory" Association="Entities.SchoolDomitory">
+            <End Role="School" EntitySet="Schools" />
+            <End Role="Domitory" EntitySet="Domitories" />
+          </AssociationSet>
+          <AssociationSet Name="SchoolEmployee" Association="Entities.SchoolEmployee">
+            <End Role="School" EntitySet="Schools" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="StudentSubject" Association="Entities.StudentSubject">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Subject" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="SubjectExam" Association="Entities.SubjectExam">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="Exam" EntitySet="Exams" />
+          </AssociationSet>
+          <AssociationSet Name="SubjectTimeTable" Association="Entities.SubjectTimeTable">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="TimeTable" EntitySet="TimeTables" />
+          </AssociationSet>
+          <AssociationSet Name="TeacherSubject" Association="Entities.TeacherSubject">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="Subject" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="ClassStudent" Association="Entities.ClassStudent">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="StudentAttendence" Association="Entities.StudentAttendence">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Attendence" EntitySet="Attendences" />
+          </AssociationSet>
+          <AssociationSet Name="EmployeeLeave" Association="Entities.EmployeeLeave">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Leave" EntitySet="Leaves" />
+          </AssociationSet>
+          <AssociationSet Name="ParentStudent" Association="Entities.ParentStudent">
+            <End Role="Parent" EntitySet="Parents" />
+            <End Role="Student" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="SchoolClass" Association="Entities.SchoolClass">
+            <End Role="School" EntitySet="Schools" />
+            <End Role="Class" EntitySet="Classes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="School">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolName" Type="String" Nullable="false" />
+          <Property Name="RegNo" Type="String" Nullable="false" />
+          <NavigationProperty Name="Domitories" Relationship="Entities.SchoolDomitory" FromRole="School" ToRole="Domitory" />
+          <NavigationProperty Name="Employees" Relationship="Entities.SchoolEmployee" FromRole="School" ToRole="Employee" />
+          <NavigationProperty Name="Classes" Relationship="Entities.SchoolClass" FromRole="School" ToRole="Class" />
+        </EntityType>
+        <EntityType Name="Domitory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DomitoryName" Type="String" Nullable="false" />
+          <Property Name="DomitoryNo" Type="String" Nullable="false" />
+          <NavigationProperty Name="School" Relationship="Entities.SchoolDomitory" FromRole="Domitory" ToRole="School" />
+          <Property Name="SchoolId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Class">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClassName" Type="String" Nullable="false" />
+          <NavigationProperty Name="Students" Relationship="Entities.ClassStudent" FromRole="Class" ToRole="Student" />
+          <NavigationProperty Name="School" Relationship="Entities.SchoolClass" FromRole="Class" ToRole="School" />
+          <Property Name="SchoolId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployNumber" Type="String" Nullable="false" />
+          <NavigationProperty Name="School" Relationship="Entities.SchoolEmployee" FromRole="Employee" ToRole="School" />
+          <Property Name="SchoolId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Leaves" Relationship="Entities.EmployeeLeave" FromRole="Employee" ToRole="Leave" />
+          <Property Name="EnlistedDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Leave">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Employee" Relationship="Entities.EmployeeLeave" FromRole="Leave" ToRole="Employee" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <Property Name="TeacherId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="Student" Relationship="Entities.StudentSubject" FromRole="Subject" ToRole="Student" />
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Exams" Relationship="Entities.SubjectExam" FromRole="Subject" ToRole="Exam" />
+          <NavigationProperty Name="TimeTables" Relationship="Entities.SubjectTimeTable" FromRole="Subject" ToRole="TimeTable" />
+          <NavigationProperty Name="Teacher" Relationship="Entities.TeacherSubject" FromRole="Subject" ToRole="Teacher" />
+          <Property Name="TeacherId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdmissionNo" Type="String" Nullable="false" />
+          <Property Name="SchoolId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Subjects" Relationship="Entities.StudentSubject" FromRole="Student" ToRole="Subject" />
+          <NavigationProperty Name="Class" Relationship="Entities.ClassStudent" FromRole="Student" ToRole="Class" />
+          <Property Name="ClassId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Attendences" Relationship="Entities.StudentAttendence" FromRole="Student" ToRole="Attendence" />
+          <NavigationProperty Name="Parent" Relationship="Entities.ParentStudent" FromRole="Student" ToRole="Parent" />
+          <Property Name="ParentId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Exam">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExamName" Type="String" Nullable="false" />
+          <Property Name="ExamType" Type="String" Nullable="false" />
+          <NavigationProperty Name="Subject" Relationship="Entities.SubjectExam" FromRole="Exam" ToRole="Subject" />
+          <Property Name="SubjectId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExamType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Attendence">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Student" Relationship="Entities.StudentAttendence" FromRole="Attendence" ToRole="Student" />
+          <Property Name="StudentId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TimeTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Day" Type="String" Nullable="false" />
+          <Property Name="StartTime" Type="Time" Nullable="false" />
+          <Property Name="EndTime" Type="Time" Nullable="false" />
+          <NavigationProperty Name="Subject" Relationship="Entities.SubjectTimeTable" FromRole="TimeTable" ToRole="Subject" />
+          <Property Name="SubjectId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stream">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StreamName" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeacherNo" Type="String" Nullable="false" />
+          <NavigationProperty Name="Subjects" Relationship="Entities.TeacherSubject" FromRole="Teacher" ToRole="Subject" />
+          <Property Name="EnlistedDate" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Parent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Students" Relationship="Entities.ParentStudent" FromRole="Parent" ToRole="Student" />
+        </EntityType>
+        <EnumType Name="Gender">
+          <Member Name="MALE" Value="1" />
+          <Member Name="FEMALE" Value="2" />
+        </EnumType>
+        <EnumType Name="MaritalStatus">
+          <Member Name="SINGLE" Value="1" />
+          <Member Name="MARRIED" Value="2" />
+          <Member Name="WIDOW" Value="3" />
+        </EnumType>
+        <Association Name="SchoolDomitory">
+          <End Type="Entities.School" Role="School" Multiplicity="1" />
+          <End Type="Entities.Domitory" Role="Domitory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Domitory">
+              <PropertyRef Name="SchoolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SchoolEmployee">
+          <End Type="Entities.School" Role="School" Multiplicity="1" />
+          <End Type="Entities.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="SchoolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentSubject">
+          <End Type="Entities.Student" Role="Student" Multiplicity="1" />
+          <End Type="Entities.Subject" Role="Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SubjectExam">
+          <End Type="Entities.Subject" Role="Subject" Multiplicity="1" />
+          <End Type="Entities.Exam" Role="Exam" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Exam">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SubjectTimeTable">
+          <End Type="Entities.Subject" Role="Subject" Multiplicity="1" />
+          <End Type="Entities.TimeTable" Role="TimeTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TimeTable">
+              <PropertyRef Name="SubjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TeacherSubject">
+          <End Type="Entities.Teacher" Role="Teacher" Multiplicity="1" />
+          <End Type="Entities.Subject" Role="Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="TeacherId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClassStudent">
+          <End Type="Entities.Class" Role="Class" Multiplicity="1" />
+          <End Type="Entities.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Class">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="ClassId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="StudentAttendence">
+          <End Type="Entities.Student" Role="Student" Multiplicity="1" />
+          <End Type="Entities.Attendence" Role="Attendence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Attendence">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EmployeeLeave">
+          <End Type="Entities.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="Entities.Leave" Role="Leave" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Leave">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ParentStudent">
+          <End Type="Entities.Parent" Role="Parent" Multiplicity="1" />
+          <End Type="Entities.Student" Role="Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parent">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="ParentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SchoolClass">
+          <End Type="Entities.School" Role="School" Multiplicity="1" />
+          <End Type="Entities.Class" Role="Class" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Class">
+              <PropertyRef Name="SchoolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="Entities" />
+        <Alias Key="Target" Value="Entities.Store" />
+        <EntityContainerMapping CdmEntityContainer="EntitiesContainer" StorageEntityContainer="EntitiesTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

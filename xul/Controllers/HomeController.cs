@@ -10,7 +10,7 @@ namespace xul.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("DashBoard");
         }
 
         public ActionResult About()
@@ -24,6 +24,11 @@ namespace xul.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult DashBoard()
+        {
             return View();
         }
     }

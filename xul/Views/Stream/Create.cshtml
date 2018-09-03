@@ -1,0 +1,38 @@
+﻿@using System.ComponentModel.DataAnnotations
+@model Xul.Domain.Entities.Stream
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+   
+         
+         
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="form-inline" role="form">
+    <div class="col-md-3">
+        @Html.LabelFor(model => model.StreamName)
+
+        @Html.EditorFor(model => model.StreamName, new { htmlAttributes = new { @class = "form-control", Required = "" } })
+        @Html.ValidationMessageFor(model => model.StreamName, "", new { @class = "text-danger" })
+
+
+    </div>  <input type="submit" value="Create" class="btn btn-default" />
+
+
+
+
+
+
+</div><br/><br/>
+    <div>
+        @{Html.RenderAction("GetStreamList", "Stream");}
+    </div>
+}
+

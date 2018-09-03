@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="83e025d694634ac28b58692995a4f2a8" Name="Diagram1" >
+        <EntityTypeShape EntityType="Entities.School" Width="1.5" PointX="6.25" PointY="0.5" />
+        <EntityTypeShape EntityType="Entities.Domitory" Width="1.5" PointX="3.75" PointY="0.5" />
+        <EntityTypeShape EntityType="Entities.Class" Width="1.5" PointX="8.875" PointY="4.375" />
+        <EntityTypeShape EntityType="Entities.Employee" Width="1.5" PointX="1.125" PointY="0.875" />
+        <EntityTypeShape EntityType="Entities.Leave" Width="1.5" PointX="0.625" PointY="3.625" />
+        <EntityTypeShape EntityType="Entities.Subject" Width="1.5" PointX="11.875" PointY="2.75" />
+        <EntityTypeShape EntityType="Entities.Student" Width="1.5" PointX="9" PointY="0.5" />
+        <EntityTypeShape EntityType="Entities.Exam" Width="1.5" PointX="11.25" PointY="6.5" />
+        <EntityTypeShape EntityType="Entities.ExamType" Width="1.5" PointX="14.75" PointY="7.375" />
+        <EntityTypeShape EntityType="Entities.Attendence" Width="1.5" PointX="13.875" PointY="1.5" />
+        <EntityTypeShape EntityType="Entities.TimeTable" Width="1.5" PointX="14.875" PointY="3.875" />
+        <EntityTypeShape EntityType="Entities.Stream" Width="1.5" PointX="8.375" PointY="7" />
+        <EntityTypeShape EntityType="Entities.Teacher" Width="1.5" PointX="4" PointY="6.5" />
+        <EntityTypeShape EntityType="Entities.Parent" Width="1.5" PointX="11.75" PointY="0.5" />
+        <AssociationConnector Association="Entities.SchoolDomitory" />
+        <AssociationConnector Association="Entities.SchoolEmployee" />
+        <AssociationConnector Association="Entities.StudentSubject" />
+        <AssociationConnector Association="Entities.SubjectExam" />
+        <AssociationConnector Association="Entities.SubjectTimeTable" />
+        <AssociationConnector Association="Entities.TeacherSubject" />
+        <AssociationConnector Association="Entities.ClassStudent" />
+        <AssociationConnector Association="Entities.StudentAttendence" />
+        <AssociationConnector Association="Entities.EmployeeLeave" />
+        <AssociationConnector Association="Entities.ParentStudent" />
+        <AssociationConnector Association="Entities.SchoolClass" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

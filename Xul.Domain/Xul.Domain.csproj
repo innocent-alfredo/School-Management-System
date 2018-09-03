@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3516F0AB-7FFD-487E-8020-D9F1CD61E719}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Xul.Domain</RootNamespace>
+    <AssemblyName>Xul.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Attendence.cs">
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Class.cs">
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Domitory.cs">
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Employee.cs">
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Entities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Exam.cs">
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ExamType.cs">
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Gender.cs">
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Leave.cs">
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\MaritalStatus.cs">
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Parent.cs">
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\School.cs">
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Stream.cs">
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Student.cs">
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Subject.cs">
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Teacher.cs">
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\TimeTable.cs">
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\XulContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XulContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\XulContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XulContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809021122074_InitialCreate.cs" />
+    <Compile Include="Migrations\201809021122074_InitialCreate.Designer.cs">
+      <DependentUpon>201809021122074_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809021410543_forst.cs" />
+    <Compile Include="Migrations\201809021410543_forst.Designer.cs">
+      <DependentUpon>201809021410543_forst.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entities\XulContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>XulContext.Context.cs</LastGenOutput>
+      <DependentUpon>Entities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entities\XulContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>XulContext.cs</LastGenOutput>
+      <DependentUpon>Entities.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="Entities\Entities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Entities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entities\Entities.edmx.diagram">
+      <DependentUpon>Entities.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201809021122074_InitialCreate.resx">
+      <DependentUpon>201809021122074_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809021410543_forst.resx">
+      <DependentUpon>201809021410543_forst.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
