@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using xul.Models.ViewModel;
 using Xul.Domain.Entities;
 
 namespace xul.Controllers.Logic
@@ -13,6 +14,10 @@ namespace xul.Controllers.Logic
     public class ClassController : Controller
     {
         private EntitiesContainer db = new EntitiesContainer();
+        public JsonResult IsClass_Available(string ClassName)
+        {
+            return Json(!db.Classes.Any(g => g.ClassName == ClassName), JsonRequestBehavior.AllowGet);
+        }
 
         // GET: Class
         public ActionResult Index()
@@ -37,9 +42,20 @@ namespace xul.Controllers.Logic
         }
 
         // GET: Class/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.SchoolId = new SelectList(db.Schools, "Id", "SchoolName");
+            if (id == null)
+            {
+                ViewBag.SchoolId = new SelectList(db.Schools, "Id", "SchoolName");
+                return View();
+            }
+
+            School school = db.Schools.Find(id);
+            if (school == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.SchoolId = new SelectList(db.Schools, "Id", "SchoolName",school.Id);
             return View();
         }
 
@@ -48,17 +64,25 @@ namespace xul.Controllers.Logic
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ClassName,SchoolId")] Class @class)
+        public ActionResult Create([Bind(Include = "Id,ClassName,SchoolId")] ClassViewModel classViewModel )
         {
             if (ModelState.IsValid)
             {
-                db.Classes.Add(@class);
+                var klas = new  Class()
+                {
+                    //mapping
+                    ClassName = classViewModel.ClassName,
+                    SchoolId = classViewModel.SchoolId
+                    
+                };
+
+                db.Classes.Add(klas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.SchoolId = new SelectList(db.Schools, "Id", "SchoolName", @class.SchoolId);
-            return View(@class);
+            ViewBag.SchoolId = new SelectList(db.Schools, "Id", "SchoolName",classViewModel.SchoolId);
+            return View(classViewModel);
         }
 
         // GET: Class/Edit/5

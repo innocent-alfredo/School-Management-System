@@ -10,7 +10,7 @@ http://creativecommons.org/licenses/by/3.0/
 ------------------------------------------------*/
 body {
     font-family: 'Open Sans', sans-serif;
-  background: #32C2CD url(../img/bg-img2.jpg) !important;
+  background: #32C2CD url(../img/bg-img.jpg) !important;
   
 }
 
@@ -389,17 +389,17 @@ max-width:170px;
 .top-navbar{
 margin:0px;
 }
-    .top-navbar .navbar-brand {
-        color: #fff;
-        width: 260px;
-        text-align: left;
-        height: 60px;
-        font-size: 24px;
-        font-weight: 700;
-        text-transform: uppercase;
-        line-height: 30px;
-        background: #28617c;
-    }
+.top-navbar .navbar-brand {
+color: #fff;
+width: 260px;
+text-align: left;
+height: 60px;
+font-size: 24px;
+font-weight: 700;
+text-transform: uppercase;
+line-height: 30px;
+background: #24383A;
+}
 .navbar-brand b{
 color: #4BD28C;
 }
@@ -508,11 +508,11 @@ background: #096E75;
  
 .navbar-side {
 	border:none;
-	background: #32C2CD url(../img/bg-img2.jpg) !important;
+	background: #32C2CD url(../img/bg-img.jpg) !important;
 }
 .top-navbar {
-    background: #1f7896;
-    border-bottom: none;
+	background: #4A4A4A;
+	border-bottom:none;
 }
 .top-navbar .nav > li > a > i {
 margin-right: 2px;

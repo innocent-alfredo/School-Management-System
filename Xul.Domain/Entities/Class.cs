@@ -7,11 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Web.Mvc;
+
 namespace Xul.Domain.Entities
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.Xml.Linq;
+
     public partial class Class
     {
         public Class()
@@ -20,7 +26,10 @@ namespace Xul.Domain.Entities
         }
     
         public int Id { get; set; }
+        [DisplayName("Class Name")]
+        [Remote("IsClass_Available", "Class", ErrorMessage = "Class already exists !", AdditionalFields = "InitialClassName")]
         public string ClassName { get; set; }
+     [ForeignKey("School")]
         public int SchoolId { get; set; }
     
         public virtual ICollection<Student> Students { get; set; }

@@ -13,10 +13,10 @@
           opts =  $.extend(defs, opts);
       return this.each(function() {
           var _this = this;
-          if(opts.type === "bar"){thychart.bar(this);}
-          else if(opts.type === "line"){thychart.line(this);}
-          else if(opts.type === "donut"){thychart.donut(this);}
-          else if(opts.type === "pie"){thychart.pie(this);}
+          if(opts.type == "bar"){thychart.bar(this);}
+          else if(opts.type == "line"){thychart.line(this);}
+          else if(opts.type == "donut"){thychart.donut(this);}
+          else if(opts.type == "pie"){thychart.pie(this);}
           else{$(this).parent().hide();}
       });
     }
@@ -415,7 +415,7 @@ var thychart = {
         $svg = $('<div class="svgCont"><svg class="svg" viewBox="0 0 ' + width + ' ' + height + '"><path class="path" d=""></path></svg></div>');
 
         $svg.addClass(".p"+index);
-        if(type===2){$svg.addClass("fill");}
+        if(type==2){$svg.addClass("fill");}
         $chart.parent().append($svg);
       }
 
@@ -425,7 +425,7 @@ var thychart = {
       var addPoint = function(points, counter, isFirst){
           var new_point;
 
-          if(isFirst === "last"){
+          if(isFirst == "last"){
             var last = Object.keys(points).length-1;
             new_point = " L" + points[last].x + "," + points[last].x + " L" + 0 + "," + points[last].x +" Z";
           }else{
@@ -442,7 +442,7 @@ var thychart = {
               addPoint(points, counter, false);
           }
 
-          if(counter === Object.keys(points).length && type === 2){
+          if(counter == Object.keys(points).length && type == 2){
             addPoint(points, counter, "last");
           }
       };

@@ -7,6 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
 namespace Xul.Domain.Entities
 {
     using System;
@@ -20,9 +23,11 @@ namespace Xul.Domain.Entities
             this.Employees = new HashSet<Employee>();
             this.Classes = new HashSet<Class>();
         }
-    
+    [Key]
         public int Id { get; set; }
+        [DisplayName("School")]
         public string SchoolName { get; set; }
+        [DisplayName("Registration Name")]
         public string RegNo { get; set; }
     
         public virtual ICollection<Domitory> Domitories { get; set; }

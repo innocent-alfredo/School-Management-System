@@ -173,6 +173,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModel\ClassViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +203,9 @@
     <Content Include="assets\js\Lightweight-Chart\index.html" />
     <Content Include="assets\js\Lightweight-Chart\jquery.chart.js" />
     <Content Include="assets\js\Lightweight-Chart\jquery.chart.min.js" />
+    <Content Include="assets\js\morris\morris-0.4.3.min.css" />
+    <Content Include="assets\js\morris\morris.js" />
+    <Content Include="assets\js\morris\raphael-2.1.0.min.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -385,6 +389,97 @@
     </Content>
     <Content Include="images\.DS_Store" />
     <Content Include="images\faces\.DS_Store" />
+    <Content Include="Scripts\autocomplete.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.map" />
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\buttons.print.min.js" />
+    <Content Include="Scripts\chosen.jquery.js" />
+    <Content Include="Scripts\chosen.jquery.min.js" />
+    <Content Include="Scripts\chosen.proto.js" />
+    <Content Include="Scripts\chosen.proto.min.js" />
+    <Content Include="Scripts\chosen_v1.6.1\chosen-sprite%402x.png" />
+    <Content Include="Scripts\chosen_v1.6.1\chosen-sprite.png" />
+    <Content Include="Scripts\chosen_v1.6.1\chosen.css" />
+    <Content Include="Scripts\chosen_v1.6.1\chosen.jquery.js" />
+    <Content Include="Scripts\chosen_v1.6.1\chosen.jquery.min.js" />
+    <Content Include="Scripts\chosen_v1.6.1\chosen.min.css" />
+    <Content Include="Scripts\chosen_v1.6.1\chosen.proto.js" />
+    <Content Include="Scripts\chosen_v1.6.1\chosen.proto.min.js" />
+    <Content Include="Scripts\chosen_v1.6.1\docsupport\chosen.png" />
+    <Content Include="Scripts\chosen_v1.6.1\docsupport\event.simulate.js" />
+    <Content Include="Scripts\chosen_v1.6.1\docsupport\oss-credit.png" />
+    <Content Include="Scripts\chosen_v1.6.1\docsupport\prism.css" />
+    <Content Include="Scripts\chosen_v1.6.1\docsupport\prism.js" />
+    <Content Include="Scripts\chosen_v1.6.1\docsupport\style.css" />
+    <Content Include="Scripts\chosen_v1.6.1\index.html" />
+    <Content Include="Scripts\chosen_v1.6.1\index.proto.html" />
+    <Content Include="Scripts\chosen_v1.6.1\options.html" />
+    <Content Include="Scripts\dataTableColumnFilter.js" />
+    <Content Include="Scripts\dataTables.buttons.min.js" />
+    <Content Include="Scripts\DynaTable\jquery.dynatable.css" />
+    <Content Include="Scripts\DynaTable\jquery.dynatable.js" />
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <None Include="Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.3.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
+    <Content Include="Scripts\jQuery-Plugin-To-Print-Any-Part-Of-Your-Page-Print\demo\css\normalize.min.css" />
+    <Content Include="Scripts\jQuery-Plugin-To-Print-Any-Part-Of-Your-Page-Print\demo\index.html" />
+    <Content Include="Scripts\jQuery-Plugin-To-Print-Any-Part-Of-Your-Page-Print\demo\js\vendor\html5-3.6-respond-1.1.0.min.js" />
+    <Content Include="Scripts\jQuery-Plugin-To-Print-Any-Part-Of-Your-Page-Print\jQuery.print.js" />
+    <Content Include="Scripts\jquery-safeform-master\jquery.safeform.js" />
+    <Content Include="Scripts\jquery-safeform-master\test.html" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery-ui.unobtrusive-3.0.0.js" />
+    <Content Include="Scripts\jquery-ui.unobtrusive-3.0.0.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.3.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.3.0.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
+    <Content Include="Scripts\jQuery-Plugin-To-Print-Any-Part-Of-Your-Page-Print\.gitignore" />
+    <Content Include="Scripts\jQuery-Plugin-To-Print-Any-Part-Of-Your-Page-Print\bower.json" />
+    <Content Include="Scripts\jQuery-Plugin-To-Print-Any-Part-Of-Your-Page-Print\package.json" />
+    <Content Include="Scripts\jQuery-Plugin-To-Print-Any-Part-Of-Your-Page-Print\README.md" />
+    <Content Include="Scripts\jquery-safeform-master\bower.json" />
+    <Content Include="Scripts\jquery-safeform-master\LICENSE" />
+    <Content Include="Scripts\jquery-safeform-master\README.md" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-3.4.0.debug.js" />
+    <Content Include="Scripts\knockout-3.4.0.js" />
+    <Content Include="Scripts\knockout.mapping-latest.debug.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\modaldialog.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\perpetuum.knockout.js" />
+    <Content Include="Scripts\prototype.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\src\jquery.table2excel.js" />
+    <Content Include="Scripts\StaffIndex.js" />
+    <Content Include="Scripts\VehicleIndex.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -401,11 +496,15 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Home\DashBoard.cshtml" />
+    <Content Include="Views\Classes\Create.cshtml" />
+    <Content Include="Views\Classes\Delete.cshtml" />
+    <Content Include="Views\Classes\Details.cshtml" />
+    <Content Include="Views\Classes\Edit.cshtml" />
+    <Content Include="Views\Classes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="assets\plugins\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -496,11 +595,6 @@
     <Content Include="Views\Parent\Details.cshtml" />
     <Content Include="Views\Parent\Edit.cshtml" />
     <Content Include="Views\Parent\Index.cshtml" />
-    <Content Include="Views\Classes\Create.cshtml" />
-    <Content Include="Views\Classes\Delete.cshtml" />
-    <Content Include="Views\Classes\Details.cshtml" />
-    <Content Include="Views\Classes\Edit.cshtml" />
-    <Content Include="Views\Classes\Index.cshtml" />
     <Content Include="Views\Schools\Create.cshtml" />
     <Content Include="Views\Schools\Delete.cshtml" />
     <Content Include="Views\Schools\Details.cshtml" />

@@ -17,7 +17,8 @@ namespace xul.Controllers.Logic
         // GET: Classes
         public ActionResult Index()
         {
-            return View(db.Classes.ToList());
+            var classes = db.Classes.Include(k => k.School);
+            return View(classes.ToList());
         }
 
         // GET: Classes/Details/5
@@ -36,8 +37,19 @@ namespace xul.Controllers.Logic
         }
 
         // GET: Classes/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
+            if (id == null)
+            {
+                ViewBag.SchoolId = new SelectList(db.Schools, "Id", "SchoolName");
+            }
+
+            School school = db.Schools.Find(id);
+            if (school == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.SchoolId = new SelectList(db.Schools, "Id", "SchoolName",school.Id);
             return View();
         }
 
@@ -55,6 +67,7 @@ namespace xul.Controllers.Logic
                 return RedirectToAction("Index");
             }
 
+            ViewBag.SchoolId = new SelectList(db.Schools, "Id", "SchoolName", @class.SchoolId);
             return View(@class);
         }
 
@@ -70,6 +83,7 @@ namespace xul.Controllers.Logic
             {
                 return HttpNotFound();
             }
+            ViewBag.SchoolId = new SelectList(db.Schools, "Id", "SchoolName", @class.SchoolId);
             return View(@class);
         }
 
@@ -86,6 +100,7 @@ namespace xul.Controllers.Logic
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.SchoolId = new SelectList(db.Schools, "Id", "SchoolName", @class.SchoolId);
             return View(@class);
         }
 

@@ -20,7 +20,7 @@
      var r        = 180;
      var c        = 360;
 
-    // var val      = parseFloat(val).toFixed(2)*c;
+     var val      = parseFloat(val).toFixed(2)*c;
      var $temp    = $('<div></div>').addClass("pie spinner");
 
      var $title   = $("<h2><p></p><span></span></h2>");
@@ -86,10 +86,10 @@
      // IF GREATER THAN 50%
      else{
        var val2 = val - r;
-       //var val1 = val - val2;
+       var val1 = val - val2;
            val2 = val2 + r;
 
-     //  var chart$clone = jQuery.extend({}, chart);
+       var chart$clone = jQuery.extend({}, chart);
            chart$clone.values.spinner = val1;
            chart$clone.values.mask = val2;
 
@@ -161,7 +161,7 @@
        }
      });
 
-    // var grid = $("<div class='grid'></div>");
+     var grid = $("<div class='grid'></div>");
          $node.parent().append(grid);
 
      for(var i = 0; i <= 10; i++) {
@@ -169,7 +169,7 @@
        var converter = max/100;
        var toUnit = (toPerc * converter).toFixed(0);
 
-       if(i % 2 === 0){
+       if(i % 2 == 0){
          var line = $("<hr/>").css({bottom: toPerc+"%"}).attr("data-y", toUnit + unit);
          $node.parent().find(".grid").append(line);
        }
@@ -303,7 +303,7 @@
        var counter = 0;
 
        function addPoint(x, y, isFirst){
-           if(isFirst === "last"){
+           if(isFirst == "last"){
              var last = Object.keys(points).length-1;
 
              var x1 = points[last].x;
@@ -324,14 +324,14 @@
              " Z";
 
            }else{
-           //  var new_point = (isFirst? "M" : " L")+x+","+y;
+             var new_point = (isFirst? "M" : " L")+x+","+y;
            }
            $chart.parent().find("path").attr("d", $chart.parent().find("path").attr("d")+""+new_point);
            counter++;
            if(counter < Object.keys(points).length){
                setTimeout(addPoint(points[counter].x, points[counter].y, false),200); // Add a new point after 200 milliseconds
            }
-           if(counter === Object.keys(points).length){
+           if(counter == Object.keys(points).length){
              setTimeout(addPoint(null, null, "last"),200);
            }
        }
