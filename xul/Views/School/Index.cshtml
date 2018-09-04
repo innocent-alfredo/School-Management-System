@@ -8,6 +8,7 @@
 
 <p>
     <a href="@Url.Action("Create")" class="btn btn-default btn-sm fa fa-plus">Add New</a>
+   
 
 </p>
 <div class="row">
@@ -43,9 +44,9 @@
                                         @Html.DisplayFor(modelItem => item.RegNo)
                                     </td>
                                     <td class="text-nowrap">
-                                        <a href="@Url.Action("Edit", new {id = item.Id})" class="btn btn-default btn-circle btn-sm" title="Click to Edit">Edit</a>
-                                       @* <a href="@Url.Action("Details", new {id = item.Id})" class="btn btn-default btn-circle btn-sm" title="Click to View">Detail</a>*@
-                                        <a href="@Url.Action("Delete", new {id = item.Id})" class="btn btn-default btn-circle btn-sm" title="Click to Delete" style="color: red">Delete</a>
+                                        <a href="@Url.Action("Edit", new {id = item.Id})" class="btn btn-default   btn-sm" title="Click to Edit">Edit</a>
+                                        @* <a href="@Url.Action("Details", new {id = item.Id})" class="btn btn-default btn-circle btn-sm" title="Click to View">Detail</a>*@
+                                        <a href="@Url.Action("Delete", new {id = item.Id})" class="btn btn-default   btn-sm" title="Click to Delete" style="color: red">Delete</a>
                                         <a href="@Url.Action("Create","Class", new {id = item.Id})" class="btn btn-default  btn-sm" title="Allocate Classes" style="color: green">Assign Class</a>
                                         @*<a class="Historylink list-group-item" href="@Url.Action("Create", "Classes", new { id = item.Id })">Add Education</a>*@
                                     </td>
@@ -59,58 +60,7 @@
         </div>
     </div>
 </div>
+<div class="loadpanel"></div>
 
 <div id="historyForms" title="Add History"></div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryui")
-    @Scripts.Render("~/bundles/jqueryval")
-
-    <script type="text/javascript">
-        var opt = {
-            autoOpen: false,
-            width: 800,
-            resizable: true,
-            modal: true,
-            show: "clip",
-            hide: "fade",
-            //buttons: {
-            //    "Update": function (){
-            //        $("submitform").submit();
-            //    },
-            //        "Cancel": function () {$(this).dialog("close")}
-            //}
-        };
-
-        $(".Historylink").click(function() {
-            //change the title of the dialog
-
-            linkObj = $(this);
-            var dialogDiv = $('#historyForms').dialog(opt);
-            var viewUrl = linkObj.attr('href');
-            $.get(viewUrl,
-                function(data) {
-                    dialogDiv.html(data);
-                    //validation
-                    var $form = $("#History");
-                    // Unbind existing validation
-                    $form.unbind();
-                    $form.data("validator", null);
-                    // Check document for changes
-                    $.validator.unobtrusive.parse(document);
-                    // Re add validation with changes
-                    $form.validate($form.data("unobtrusiveValidation").options);
-                    //open dialog
-                    dialogDiv.dialog('open');
-                });
-            return false;
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable();
-        });
-    </script>
-}
 

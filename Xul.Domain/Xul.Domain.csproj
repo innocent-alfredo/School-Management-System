@@ -95,13 +95,7 @@
     <Compile Include="Entities\ExamType.cs">
       <DependentUpon>XulContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Gender.cs">
-      <DependentUpon>XulContext.tt</DependentUpon>
-    </Compile>
     <Compile Include="Entities\Leave.cs">
-      <DependentUpon>XulContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\MaritalStatus.cs">
       <DependentUpon>XulContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Parent.cs">
@@ -143,6 +137,10 @@
     <Compile Include="Migrations\201809021410543_forst.Designer.cs">
       <DependentUpon>201809021410543_forst.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809040628211_level0.cs" />
+    <Compile Include="Migrations\201809040628211_level0.Designer.cs">
+      <DependentUpon>201809040628211_level0.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -179,6 +177,15 @@
     <EmbeddedResource Include="Migrations\201809021410543_forst.resx">
       <DependentUpon>201809021410543_forst.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809040628211_level0.resx">
+      <DependentUpon>201809040628211_level0.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Xul.Common\Xul.Common.csproj">
+      <Project>{F84E8E5C-C6DC-41E1-ABFB-42487DE2F118}</Project>
+      <Name>Xul.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

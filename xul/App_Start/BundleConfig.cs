@@ -15,8 +15,20 @@ namespace xul
                 "~/Scripts/jquery-ui-{version}.js",
                 "~/Scripts/jquery-ui.unobtrusive-{version}.js"));
 
-           
-           
+
+
+            //bundles.Add(new ScriptBundle("~/bundles/jqueryajax").Include(
+            //    "~/Scripts/jquery.unobtrusive-ajax.min.js",
+            //    "~/Scripts/dxtreme/dx.all.js",
+            //    "~/Scripts/lobibox/js/lobibox.min.js",
+            //    "~/Scripts/jquery-confirm/jquery-confirm.min.js",
+            //    "~/Scripts/custom/setup.js",
+            //    //additional
+
+            //    "~/Dashboard/js/admin.js",
+            //    "~/Dashboard/js/demo.js"
+
+            //));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.validate*"));
@@ -26,24 +38,22 @@ namespace xul
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                 "~/Scripts/modernizr-*"));
 
+
+
+
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                 "~/assets/js/jquery-1.10.2.js",
                 "~/assets/js/bootstrap.min.js",
                 "~/assets/js/jquery.metisMenu.js",
-                "~/assets/js/morris/raphael-2.1.0.min.js",
-                "~/assets/js/morris/morris.js",
-                "~/assets/js/easypiechart.js",
-                "~/assets/js/easypiechart-data.js",
-                "~/assets/js/Lightweight-Chart/jquery.chart.js",
-                "~/assets/js/custom-scripts.js",
+               
                 "~/DataTables/DataTables-1.10.18/js/jquery.dataTables.min.js",
                 "~/assets/js/dataTables/jquery.dataTables.js",
                 "~/assets/js/dataTables/dataTables.bootstrap.js",
+                
                 "~/Scripts/jquery-3.1.1.js"));
 
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                //"~/Content/bootstrap.css",
                 "~/assets/css/bootstrap.css",
                 "~/assets/css/font-awesome.css",
                 "~/assets/js/morris/morris-0.4.3.min.css",

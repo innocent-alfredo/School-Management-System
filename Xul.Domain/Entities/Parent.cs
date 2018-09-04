@@ -7,12 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Xul.Common.Base;
+
 namespace Xul.Domain.Entities
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Parent
+    public partial class Parent:StudentItems
     {
         public Parent()
         {

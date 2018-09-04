@@ -11,8 +11,9 @@ namespace Xul.Domain.Entities
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Student
+    using Xul.Common.Base;
+
+    public partial class Student:StudentItems
     {
         public Student()
         {

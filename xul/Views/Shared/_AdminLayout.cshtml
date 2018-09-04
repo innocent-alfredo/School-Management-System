@@ -19,7 +19,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html"><i class="fa fa-gear"></i> <strong>TSMS</strong></a>
+                <a class="navbar-brand" href="@Url.Action("DashBoard","Home")"><i class="fa fa-gear"></i> <strong>TSMS</strong></a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -244,7 +244,7 @@
                         <a class="active-menu" href="@Url.Action("DashBoard","Home")"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="ui-elements.html"><i class="fa fa-desktop"></i> UI Elements</a>
+                        <a href="@Url.Action("Index","School")"><i class="fa fa-building-o"></i> Schools List(s)</a>
                     </li>
                     <li>
                         <a href="chart.html"><i class="fa fa-bar-chart-o"></i> Charts</a>
@@ -261,7 +261,7 @@
                     </li>
 
 
-                    <li>
+                    @*<li>
                         <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
@@ -287,7 +287,7 @@
 
                             </li>
                         </ul>
-                    </li>
+                    </li>*@
                     <li>
                         <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
                     </li>
@@ -306,7 +306,7 @@
             @RenderBody()
             <hr />
             <footer>
-                <p>&copy; @DateTime.Now.Year - School Management System</p>
+                <p style="color: peru"><text style="size: A1">&copy; @DateTime.Now.Year - School Management System::Ministry Of Education</text></p>
             </footer>
         </div>
 
@@ -315,6 +315,7 @@
 </div>
     
 @Scripts.Render("~/bundles/jquery")
+@*@Scripts.Render("~/bundles/jqueryajax")*@
 @Scripts.Render("~/bundles/bootstrap")
 @RenderSection("scripts", required: false)
 

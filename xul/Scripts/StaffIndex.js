@@ -1,16 +1,24 @@
 ﻿
     $(function () {
         //$(".assignlink").button();
+        //$(".assignlink1").button();
+        //$(".assignlink2").button();
         $(".assignlink6").button();
 
         $("#assignDepartment").dialog({
             autoOpen: false,
-            width: 750,            
+            width: 700,            
             resizable: true,
             modal: true,
             //autoOpen: true,
             show: "clip",
-            hide: "fade",            
+            hide: "fade",
+            //buttons: {
+            //    "Update": function (){
+            //        $("submitform").submit();
+            //    },
+            //        "Cancel": function () {$(this).dialog("close")}
+            //}
         });
              
 
@@ -38,6 +46,7 @@
 
 
 
+
         $("#assignEducation").dialog({
             autoOpen: false,
             width: 600,
@@ -45,6 +54,12 @@
             modal: true,
             show: "clip",
             hide: "fade",
+            //buttons: {
+            //    "Update": function (){
+            //        $("submitform").submit();
+            //    },
+            //        "Cancel": function () {$(this).dialog("close")}
+            //}
         });
 
         $(".assignlink1").click(function () {
@@ -101,42 +116,27 @@
             return false;
         });
 
-        $("#addPF_No").dialog({
-            autoOpen: false,
-            width: 600,
-            resizable: true,
-            modal: true,
-            show: "clip",
-            hide: "fade",
-        });
-
-        $(".addPF_No").click(function () {
-            //change the title of the dialog
-            linkObj = $(this);
-            var dialogDiv = $('#addPF_No');
-            var viewUrl = linkObj.attr('href');
-            $.get(viewUrl, function (data) {
-                dialogDiv.html(data);
-                //validation
-                var $form = $("#updatePFNo");
-                // Unbind existing validation
-                $form.unbind();
-                $form.data("validator", null);
-                // Check document for changes
-                $.validator.unobtrusive.parse(document);
-                // Re add validation with changes
-                $form.validate($form.data("unobtrusiveValidation").options);
-                //open dialog
-                dialogDiv.dialog('open');
-            });
-            return false;
-        });
-
     });
+
+////Cascading dropdowns -- Regions + Districts
+//function myPartialView_Load() {
+//    $('#Region').change(function () {
+//        $.getJSON('/Staff/DistrictList/' + $('#Region').val(), function (data) {
+//            var items = '<option>Select a District</option>';
+
+//            $.each(data, function (i, district) {
+//                items += "<option value='" + district.Value + "'>" + district.Text + "</option>";
+//            });
+
+//            $('#District').html(items);
+//        });
+//    });
+//};
+
 
 ////DatePicker Code
 $(document).ready(function () {
-    $(document).on('focus', '.datefield', function () {
+    $(document).on('focus', '#datefield, #datefield1', function () {
         $(this).datepicker({ changeYear: true, yearRange: 'c-65:c+10' });
     });
 });

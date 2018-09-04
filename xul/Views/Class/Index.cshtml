@@ -33,10 +33,10 @@
                                 @Html.DisplayFor(modelItem => item.ClassName)
                             </td>
                             <td class="text-nowrap">
-                                <a href="@Url.Action("Edit", new {id = item.Id})" class="btn btn-default btn-circle btn-sm" title="Click to Edit">Edit</a>
-                                <a href="@Url.Action("Details", new {id = item.Id})" class="btn btn-default btn-circle btn-sm" title="Click to View">Detail</a>
-                                <a href="@Url.Action("Delete", new {id = item.Id})" class="btn btn-default btn-circle btn-sm" title="Click to Delete" style="color: red">Delete</a>
-                                <a href="@Url.Action("Create","Class", new {id = item.Id})" class="btn btn-default  btn-sm" title="Allocate Classes" style="color: green">Allocate Student</a>
+                                <a href="@Url.Action("Edit", new {id = item.Id})" class="btn btn-default  btn-sm" title="Click to Edit">Edit</a>
+                                <a href="@Url.Action("Details", new {id = item.Id})" class="btn btn-default  btn-sm" title="Click to View">Detail</a>
+                                <a href="@Url.Action("Delete", new {id = item.Id})" class="btn btn-default  btn-sm" title="Click to Delete" style="color: red">Delete</a>
+                                <a href="@Url.Action("Create","Student", new {id = item.Id})" class="btn btn-default  btn-sm" title="Allocate Classes" style="color: green">Allocate Student</a>
 
                             </td>
                         </tr>

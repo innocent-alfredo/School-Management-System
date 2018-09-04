@@ -37,10 +37,20 @@ namespace xul.Controllers.Logic
         }
 
         // GET: Student/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
+            if (id == null)
+            {
+               return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Class klas = db.Classes.Find(id);
+            if (klas == null)
+            {
+                return HttpNotFound();
+            }
             ViewBag.ClassId = new SelectList(db.Classes, "Id", "ClassName");
-            ViewBag.ParentId = new SelectList(db.Parents, "Id", "Id");
+            ViewBag.ParentId = new SelectList(db.Parents, "Id", "FirstName");
             return View();
         }
 
@@ -49,7 +59,7 @@ namespace xul.Controllers.Logic
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,AdmissionNo,SchoolId,ClassId,ParentId")] Student student)
+        public ActionResult Create([Bind(Include = "Id,AdmissionNo,SchoolId,ClassId,ParentId,FirstName,MiddleName,LastName,DateOfBirth,Gender,MaritalStatus,CreatedBy,CreatedDate,EditedBy,EditedDate")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +69,7 @@ namespace xul.Controllers.Logic
             }
 
             ViewBag.ClassId = new SelectList(db.Classes, "Id", "ClassName", student.ClassId);
-            ViewBag.ParentId = new SelectList(db.Parents, "Id", "Id", student.ParentId);
+            ViewBag.ParentId = new SelectList(db.Parents, "Id", "FirstName", student.ParentId);
             return View(student);
         }
 
@@ -76,7 +86,7 @@ namespace xul.Controllers.Logic
                 return HttpNotFound();
             }
             ViewBag.ClassId = new SelectList(db.Classes, "Id", "ClassName", student.ClassId);
-            ViewBag.ParentId = new SelectList(db.Parents, "Id", "Id", student.ParentId);
+            ViewBag.ParentId = new SelectList(db.Parents, "Id", "FirstName", student.ParentId);
             return View(student);
         }
 
@@ -85,7 +95,7 @@ namespace xul.Controllers.Logic
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,AdmissionNo,SchoolId,ClassId,ParentId")] Student student)
+        public ActionResult Edit([Bind(Include = "Id,AdmissionNo,SchoolId,ClassId,ParentId,FirstName,MiddleName,LastName,DateOfBirth,Gender,MaritalStatus,CreatedBy,CreatedDate,EditedBy,EditedDate")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +104,7 @@ namespace xul.Controllers.Logic
                 return RedirectToAction("Index");
             }
             ViewBag.ClassId = new SelectList(db.Classes, "Id", "ClassName", student.ClassId);
-            ViewBag.ParentId = new SelectList(db.Parents, "Id", "Id", student.ParentId);
+            ViewBag.ParentId = new SelectList(db.Parents, "Id", "FirstName", student.ParentId);
             return View(student);
         }
 

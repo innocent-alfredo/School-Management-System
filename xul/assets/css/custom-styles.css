@@ -10,8 +10,7 @@ http://creativecommons.org/licenses/by/3.0/
 ------------------------------------------------*/
 body {
     font-family: 'Open Sans', sans-serif;
-  background: #32C2CD url(../img/bg-img.jpg) !important;
-  
+    background: #adbfbe !important;
 }
 
  #wrapper {
@@ -389,17 +388,19 @@ max-width:170px;
 .top-navbar{
 margin:0px;
 }
-.top-navbar .navbar-brand {
-color: #fff;
-width: 260px;
-text-align: left;
-height: 60px;
-font-size: 24px;
-font-weight: 700;
-text-transform: uppercase;
-line-height: 30px;
-background: #24383A;
-}
+    .top-navbar .navbar-brand {
+        color: #fff;
+        width: 260px;
+        text-align: left;
+        height: 60px;
+        font-size: 24px;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 30px;
+        background: #579ec1;
+        
+        
+    }
 .navbar-brand b{
 color: #4BD28C;
 }
@@ -498,21 +499,21 @@ color: #fff !important;
 	border-bottom: 1px solid rgba(107, 108, 109, 0.19);
 }
 ul.nav.nav-second-level.collapse.in {
-background: #096E75;
+    background: #579ec1;
 }
 .sidebar-collapse .nav > li > a:hover,
 .sidebar-collapse .nav > li > a:focus {
 	 
 	outline:0;
 }
- 
+
 .navbar-side {
-	border:none;
-	background: #32C2CD url(../img/bg-img.jpg) !important;
+    border: none;
+    background: #adbfbe !important;
 }
 .top-navbar {
-	background: #4A4A4A;
-	border-bottom:none;
+    background: #579ec1;
+    border-bottom: none;
 }
 .top-navbar .nav > li > a > i {
 margin-right: 2px;

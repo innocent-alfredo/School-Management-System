@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Xul.Domain.Entities
+namespace Xul.Common.Enums
 {
     using System;
     
